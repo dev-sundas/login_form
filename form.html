@@ -18,14 +18,14 @@
             <h1>Login</h1>
 
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Username" required id="username">
                 <div class="icons"><i class='bx bxs-user'></i></div>
 
 
 
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Password" required>
+                <input type="text" placeholder="Password" required id="password">
                 <i class='bx bxs-lock'></i>
             </div>
             <div class="remember-forgot">
@@ -36,7 +36,7 @@
 
                 <a href="forget_ password.html">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn"><b>Login</b></button>
+            <button type="submit" class="btn" id="submit" onClick="validate()"><b>Login</b></button>
 
 
             <div class="register-link">
@@ -44,9 +44,46 @@
 
                 </p>
             </div>
+        </form>
+
 
 
     </div>
+    <script>
 
+        function checkInput(Username, Password) {
+
+
+            if (Username == "") {
+                alert("Username must be filed");
+                return false;
+            }
+            if (Password == "") {
+                alert("Password must be filed");
+                return false;
+
+            }
+            return true;
+
+        }
+
+        function validate() {
+            let Username = document.getElementById("username").value;
+            let Password = document.getElementById("password").value;
+            console.log("hello world")
+            console.log(Username, Password)
+            const status = checkInput(Username, Password)
+            if (status) {
+                if (Username == "Formget" && Password == "formget#123") {
+                    alert("Login successfully");
+                    return true;
+                } else {
+                    alert("wrong password and username");
+
+                }
+            }
+        }
+
+    </script>
 
 </body>
